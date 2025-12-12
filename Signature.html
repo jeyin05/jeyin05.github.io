@@ -1,0 +1,449 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background-color: rgb(221, 218, 168);
+        }
+        li {
+            list-style-type: none;
+        }
+        .clear {
+            clear: both;
+        }
+
+        /* ⭐️ #page: 유동적 너비 */
+        #page {
+            width: 100%;
+            max-width: 1300px;
+            margin: 0 auto;
+            padding: 0 10px;
+        }
+
+        /* ⭐️ Header: 유동적 너비 및 Flexbox */
+        header, nav {
+            width: 100%;
+            height: auto;
+            margin-top: 10px;
+            border-bottom: solid 2px #636132;
+        }
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 10px;
+            min-height: 100px;
+        }
+        #logo, #top {
+            float: none;
+            margin: 0;
+        }
+        
+        /* ⭐️ Nav: 간격 균등 분배 (Flexbox) */
+        nav ul {
+            display: flex; 
+            flex-wrap: wrap;
+            /* 항목들을 좌우 끝에 배치하며 균등한 간격을 줍니다. */
+            justify-content: space-around; 
+            padding: 10px 0;
+        }
+        nav li {
+            /* 기존의 float, margin, padding을 제거하거나 초기화합니다. */
+            float: none;
+            margin: 0; 
+            padding: 0;
+            flex-grow: 1; /* 모바일에서 공간을 균등하게 차지하도록 */
+            text-align: center;
+            position: relative; /* 드롭다운 메뉴를 위해 relative 유지 */
+        }
+        
+        nav li img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+        }
+        
+        /* 드롭다운 메뉴 스타일 */
+        .a {
+            display: inline;
+            margin: 0;
+            padding: 0;
+            width: auto;
+        }
+        ul li {display: inline-block;}
+        ul li:hover {background: rgb(207, 203, 146);}
+        ul li:hover ul {display: block;}
+        
+        /* ⭐️ 드롭다운 컨테이너 (문법 오류 수정 완료) */
+        ul li ul {
+            position: absolute;
+            width: 250px; 
+            display: none;
+            z-index: 100;
+            left: 50%;
+            transform: translateX(-50%); /* 항목 중앙 아래에 팝업이 오도록 조정 */
+            margin-top: 5px; 
+        }
+        
+        ul li ul li {
+            background: rgb(190, 186, 129);
+            display: block;
+            text-align: left; /* 드롭다운 항목은 왼쪽 정렬 */
+            margin: 0;
+            padding: 0;
+        }
+        ul li ul li a { 
+            display: block !important; 
+            text-decoration: none; 
+            text-align: left; 
+            color: #333; 
+            padding: 4px 10px; 
+        }
+        ul li ul li:hover {background: rgb(149, 158, 104);}
+
+        /* ----------------------------------------------------- */
+        /* 원본 와이어프레임 레이아웃 (float 및 고정 픽셀 유지) */
+        /* ----------------------------------------------------- */
+        section {
+            float: left;
+            margin-top: 10px;
+            margin-left: 40px;
+            padding-left: 40px;
+            width: calc(100% - 80px); /* 데스크톱 너비 */
+            max-width: 1200px;
+        }
+        #seasons-mainname {
+            font-size: 30px;
+            text-align: center; /* ⭐️ 중앙 정렬 */
+            padding: 12px;
+            margin-bottom: 10px;
+            width: 100%;
+        }
+        
+        /* ⭐️ Seasons 이미지 가로 정렬 (Flexbox) */
+        .seasons-container {
+            display: flex;
+            justify-content: space-around; /* 이미지 간격 분배 */
+            flex-wrap: nowrap;
+        }
+        .seasons-container img {
+            width: 23%; /* 데스크톱에서 4개 가로 정렬 */
+            height: auto;
+            display: block;
+            max-width: 100%;
+        }
+
+        /* Depiction Content */
+        #depiction-img {
+            float: left;
+            margin-top: 120px;
+            width: 450px;
+            height: 320px;
+            background-color: #d0ce7f;
+            /* width와 height는 모바일 대응을 위해 미디어 쿼리로 재정의됨 */
+        }
+        #signature-a {
+            margin-left: -40px;
+            width: 470px;
+            height: 320px;
+            max-width: 100%; 
+        }
+        #depiction {
+            float: left;
+            margin-left: 0px;
+            margin-top: 120px;
+            width: 720px;
+            height: 320px;
+            background-color: #d0ce7f;
+            padding: 20px;
+        }
+
+        /* Writing Sections */
+        .writing-img {
+            float: left;
+            margin: 120px 0 0 65px;
+            width: 450px;
+            height: 550px;
+        }
+        .writing {
+            float: left;
+            margin-left: 60px;
+            margin-top: 120px;
+            padding: 30px;
+            width: 600px;
+            height: 500px;
+            border-radius: 15px;
+            background-color: rgb(224, 219, 184);
+            box-shadow: 5px 5px 5px rgb(151, 156, 99);
+        }
+
+        /* Footer */
+        #address {
+            float: left;
+            margin: 30px 0 0 20px;
+        }
+        #customer {
+            float: left;
+            margin: 30px 0 0 240px;
+        }
+        footer {
+            border-bottom: solid 2px #636132;
+            margin-top: 150px;
+            width: 100%;
+            height: auto;
+        }
+
+        /* ----------------------------------------------------- */
+        /* ⭐️ 모바일 미디어 쿼리 (화면 너비 768px 이하) */
+        /* ----------------------------------------------------- */
+        @media screen and (max-width: 768px) {
+            
+            /* 모든 고정 너비 요소를 100%로 설정하여 유동적으로 만듦 */
+            header, nav, #page {
+                width: 100%;
+                padding: 0 5px;
+            }
+            
+            /* 모든 float과 고정 크기 레이아웃을 1단으로 재배치 */
+            section, aside, 
+            #depiction-img, #depiction, 
+            .writing-img, .writing, 
+            #address, #customer {
+                float: none;
+                width: 100%;
+                margin: 10px 0;
+                padding: 10px;
+                height: auto;
+            }
+
+            /* Seasons 이미지 갤러리: 2개씩 배열 */
+            .seasons-container {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: space-around;
+            }
+            .seasons-container img {
+                width: 48%; 
+                height: auto;
+            }
+
+            /* Writing Sections: 높이와 마진 초기화 */
+            .writing, .writing-img {
+                height: auto;
+                margin: 10px 0;
+                width: 100%;
+            }
+            .writing {
+                box-shadow: none; /* 모바일에서 그림자 제거 */
+            }
+
+            /* Depiction 섹션: 수직 스택 */
+            #depiction-img, #depiction {
+                width: 100%;
+                height: auto;
+            }
+
+            /* Footer: 수직 스택 */
+            footer {
+                display: block;
+                height: auto;
+                padding: 20px 10px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="page">
+        <header>
+            <div id="logo">
+                <a href="index.html"><img src="Logo_AlphonseMucha.png" height="60"></a>
+            </div>
+        </header>
+    
+        <div class="clear"></div>
+
+        <nav>
+            <ul>
+                <ul class="a">
+                    <li>
+                        <a href="Signature.html"><img src="SIGNATURE.png"></a>
+                            <ul>
+                                <li><a href="Signature.html">The Seasons<br></a></li>
+                                <li><a href="TheFlower.html">The Flower&nbsp;&nbsp;&nbsp;</a></li>
+                                <li><a href="TheArt.html">The Art&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br></a></li>
+                                <li><a href="TheJewels.html">The Jewels&nbsp;&nbsp;&nbsp;</a></li>
+                            </ul>
+                    </li>
+                </ul>
+
+                <li>
+                    <a href="Timeline.html"><img src="TIMELINE.png"></a>
+                        <ul>
+                            <li><a href="Timeline.html">Alphonse Mucha&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            </a></li>
+                            <li><a href="sub-TheGenreofArtNouveau.html">The Genre of Art Nouveau</a></li>
+                            <li><a href="sub-HisLife.html">His Life&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            </a></li>
+                            <li><a href="sub-ArtisticWorld.html">Artistic World&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            </a></li>
+                        </ul>
+                </li>
+                <li>
+                    <a href="The_Slav_Epic.html"><img src="THE_SLAV_EPIC.png"></a>
+                </li> 
+                <li>
+                    <a href="Exhibition.html"><img src="EXHIBITIONS.png"></a>
+                </li>
+                <li>
+                    <a href="Gallery.html"><img src="GALLERY.png"></a>
+                        <ul>
+                            <li><a href="Gallery.html">Art Posters&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <li><a href="sub-Art Posters.html">Advertising Posters</a></li>
+                            <li><a href="sub-SarahBernhardt.html">Sarah Bernhardt&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
+                        </ul>
+                </li>
+            </ul>
+        </nav>
+
+        <div class="clear"></div> 
+
+        <section class="main-content">
+            <h3 id="seasons-mainname">The Seasons</h3>
+
+            <div class="seasons-container">
+                <img src="MF_Seasons_Spring_1896.jpg" width="230">
+                <img src="MF_Seasons_Summer_1896.jpg" width="230">
+                <img src="MF_Seasons_Autumn_1896.jpg" width="230">
+                <img src="MF_Seasons_Winter_1896.jpg" width="235">
+            </div>
+        </section>
+
+        <div class="clear"></div>
+
+        <section id="depiction-img">
+           <img id="signature-a" src="signature-1.png">
+        </section>
+
+        <aside id="depiction">
+            <h2>The Seasons <br></h2>
+            <p><br>Created in 1896, 'The Seasons' is arguably the most popular and beloved series among Alphonse 
+                Mucha’s decorative panels. Mucha captured the cyclical nature of Spring, Summer, Autumn, 
+                and Winter through the personification of idealized female figures.<br></p>
+            <p><br>What stands out in these works is the harmonious blend of rich natural motifs and elegant curves 
+                symbolizing each season. The purity of 'Spring,' the abundance of 'Summer,' the harvest of 
+                'Autumn,' and the solitude of 'Winter' are woven into delicate colors and background patterns.</p>
+        </aside>
+
+        <div class="clear"></div>
+
+        <section class="writing-img">
+            <img id="spring" src="MF_Seasons_Spring_1896.jpg" height="550">
+        </section>
+
+        <aside class="writing">
+            <h2>Spring, A Message of Purity and Hope <br><br></h2>
+            <p> Created in 1896, 'Spring' is the inaugural piece in Alphonse Mucha's highly 
+                acclaimed decorative series, 'The Seasons,' and is depicted as a young girl in a pure white gown. 
+                She stands shyly beside a tree, smiling while holding freshly bloomed white flowers. 
+                This work symbolizes the rebirth of life and a new beginning, breaking the silence of winter. <br><br> </p>
+
+            <p> Mucha adorned the girl's hair with delicate floral motifs and filled the background with elegant 
+                vine patterns, maximizing the characteristic decorative beauty of Art Nouveau. Notably, 
+                'Spring' uses the cleanest, most delicate lines and bright, pastel colors within the series, 
+                focusing on conveying the warm and cheerful atmosphere of a spring day. <br><br> </p>
+
+            <p> This method of expressing human emotion through the personification of the seasons was met 
+                with great popular success at the time, playing a decisive role in establishing Mucha as a master 
+                of Parisian decorative arts.</p>
+        </aside>
+
+        <div class="clear"></div>
+
+        <section class="writing">
+            <h2><br>The Passion and Abundance of the Sun, Summer <br><br></h2>
+
+            <p>  Mucha's 'Summer' captures the peak of the hot sun, portraying the most mature and sensual 
+                female figure in the series. Adorned with red flowers in her hair, she leans with a weary, 
+                languid expression, embodying both the languor and heat of a midsummer afternoon. <br><br> </p>
+
+            <p>  The lush leaves and calm pond in the background signify a moment overflowing with natural 
+                abundance and vitality. Mucha primarily used bright golds and greens to visually realize 
+                the sun-drenched vibrancy, showcasing a bolder and denser composition than the other seasons. <br><br> </p>
+
+            <p>  This is a prime example of Mucha's mastery in combining feminine beauty and natural energy 
+                to create a sensory decorative effect admired throughout the Art Nouveau movement.</p>
+        </section>
+
+        <aside class="writing-img">
+            <img id="summer" src="MF_Seasons_Summer_1896.jpg"height="550">
+        </aside>
+
+        <div class="clear"></div> 
+        
+        <section class="writing-img">
+            <img id="autumn" src="MF_Seasons_Autumn_1896.jpg"height="550">
+        </section>
+
+        <aside class="writing">
+            <h2><br>The Joy of Harvest and Fruition, Autumn <br><br></h2>
+
+            <p> 'Autumn' is enveloped by abundant sheaves of grain and luscious fruits, 
+                symbolizing the joy of harvest and fruition bestowed by nature. Red grapes 
+                and orange foliage adorn the woman's hair, and her calm gaze and contented 
+                expression reflect the reward and peace following a year of labor. <br><br> </p>
+
+            <p> This piece predominantly uses warm brown and orange tones to convey the rich and tranquil 
+                atmosphere of the deepening season. Mucha did not simply list the harvest; he decoratively 
+                sublimated the seasonal transition through smoothly flowing vine and leaf patterns. <br><br> </p>
+
+            <p> 'Autumn' visually interprets not only material plenty but also the inner stability 
+                required for the approaching winter, showcasing Mucha's delicate artistic interpretation.</p>
+        </aside>
+
+        <div class="clear"></div>
+
+        <section class="writing">
+            <h2><br>Solitude and Protection in Stillness, Winter <br><br></h2>
+
+            <p> 'Winter' concludes the series, depicted as a woman bundled in a thick white cloak, 
+                huddled amidst a desolate, snowy landscape. While barren branches and cold snow dominate 
+                her surroundings, the warm fur lining protects her from the harsh cold, creating a contrasting 
+                image of protection within solitude. <br><br> </p>
+
+            <p> Mucha uses a cool palette of blues and whites to convey the static and sublime beauty 
+                of winter and inner stillness. This work represents the time of pause before the awaited 
+                'Spring,' communicating the value of reflection and endurance rather than outward exuberance. <br><br> </p>
+
+            <p> The simplified background and quiet placement of the figure in 'Winter' symbolize nature's 
+                preparation for the revival of the next season, bringing Mucha's Four Seasons series to a perfect cyclical conclusion.</p>
+        </section>
+
+        <aside class="writing-img">
+            <img id="winter" src="MF_Seasons_Winter_1896.jpg"height="550">
+        </aside>
+
+        <div class="clear"></div>
+
+        <footer>
+            <div id="address">
+                <img src="address.png">
+            </div>
+        </footer>
+        <div class="clear"></div>
+    </div>
+</body>
+</html>
