@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+        }
+        body {
+            background-color: rgb(221, 218, 168);
+        }
+        li {
+            list-style-type: none;
+        }
+        .clear {
+            clear: both;
+        }
+        #page {
+            width: 1300px;
+            margin: 0 auto;
+            /* border: solid 1px red; */
+        }
+        header {
+            width: 1300px;
+            height: 100px;
+            margin-top: 10px;
+            border-bottom: solid 2px #636132;
+        }
+        #logo {
+            float: left;
+            margin-top: 20px;
+        }
+        #top {
+            float: right;
+            margin: 30px 20px 0 0;
+            font-size: 12px;
+            color: #636132;
+        }
+        nav {
+            width: 1300px;
+            height: 70px;
+            margin-top: 10px;
+        }
+        nav li {
+            float: left;
+            margin-right: 30px;
+            padding-left: 65px;
+        }
+
+        .a {
+            display: inline;
+            margin: 0;
+            padding: 0;
+            width: 200px;
+        }
+        ul li {display: inline-block;}
+        ul li:hover {background: rgb(207, 203, 146);}
+        ul li:hover ul {display: block;}
+        ul li ul {
+            position: absolute;
+            width: 350px;
+            display: none;
+        }
+        ul li ul li {
+            background: rgb(190, 186, 129);
+            display: block;
+        }
+        ul li ul li a { 
+            display: block !important; 
+            text-decoration: none; 
+            text-align: left; 
+            color: #333; 
+            padding: 4px 10px; 
+        }
+        ul li ul li:hover {background: rgb(149, 158, 104);}
+
+        #contents{
+            width: 1140px;
+            margin: 0 auto;
+        }
+        #sub_menu {
+            width: 234px;
+            float: left;
+            margin-top: 25px;
+            /* border: solid 1px red; */
+        }
+        #sub_menu h3 {
+            font-size: 18px;
+            color: #5df0c0;
+            padding: 12px;
+            background-color: #516e7f;
+        }
+        #sub_menu li {
+            padding: 10px;
+            border-bottom: dotted 1px #cccccc;
+        }
+        #main_contents{
+            width: 880px;
+            float: right;
+            margin-top: 25px;
+            /* border: solid 1px red; */
+        }
+        #main_contents h3 {
+            font-size: 22px;
+            padding-bottom: 8px;
+            border-bottom: solid 1px #cccccc;
+        }
+        #main_contents p {
+            margin-top: 30px;
+            line-height: 180%;
+        }
+        #main_contents #figure {
+            margin-top: 30px;
+            text-align: center;
+        }
+        #main_contents li {
+            padding: 5px;
+        }
+
+        aside {
+            float: left;
+            margin-left: 20px;
+            margin-top: 10px;
+            
+        }
+        #address {
+            float: left;
+            margin: 30px 0 0 20px;
+        }
+        #customer {
+            float: left;
+            margin: 30px 0 0 240px;
+        }
+        footer {
+            border-bottom: solid 2px #636132;
+            margin-top: 150px;
+            width: 100%;
+            height: auto;
+            padding: 20px 10px;
+        }
+    </style>
+</head>
+<body>
+    <div id="page">
+        <header>
+            <div id="logo">
+                <a href="Index.html"><img src="Logo_AlphonseMucha.png" height="60"></a>
+            </div>
+
+            <div id="top"> 
+                Login | Sign Up | Site Map | Author Profile
+            </div>
+        </header>
+    
+        <div class="clear"></div> <!--float 속성 해제-->
+
+    <nav>
+        <ul>
+            <ul class="a">
+                <li>
+                    <a href="Signature.html"><img src="SIGNATURE.png"></a>
+                        <ul>
+                            <li><a href="Signature.html">The Seasons<br></a></li>
+                            <li><a href="TheFlower.html">The Flower&nbsp;&nbsp;&nbsp;</a></li>
+                            <li><a href="TheArt.html">The Art&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<br></a></li>
+                            <li><a href="TheJewels.html">The Jewels&nbsp;&nbsp;&nbsp;</a></li>
+                        </ul>
+                </li>
+            </ul>
+
+                <li>
+                    <a href="Timeline.html"><img src="TIMELINE.png"></a>
+                        <ul>
+                            <li><a href="Timeline.html">Alphonse Mucha&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            </a></li>
+                            <li><a href="sub-TheGenreofArtNouveau.html">The Genre of Art Nouveau</a></li>
+                            <li><a href="sub-HisLife.html">His Life&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            </a></li>
+                            <li><a href="sub-ArtisticWorld.html">Artistic World&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            </a></li>
+                        </ul>
+                </li>
+            <li>
+                    <a href="The_Slav_Epic.html"><img src="THE_SLAV_EPIC.png"></a>
+                        <!-- <ul>
+                            <li><a href="#">Link 1</a></li>
+                            <li><a href="#">Link 2</a></li>
+                            <li><a href="#">Link 3</a></li>
+                        </ul> -->
+                </li>                
+            <li>
+                    <a href="Exhibition.html"><img src="EXHIBITIONS.png"></a>
+                        <!-- <ul>
+                            <li><a href="#">Link 1</a></li>
+                            <li><a href="#">Link 2</a></li>
+                            <li><a href="#">Link 3</a></li>
+                        </ul> -->
+                </li>
+            <li>
+                    <a href="Gallery.html"><img src="GALLERY.png"></a>
+                        <ul>
+                            <li><a href="Gallery.html">Art Posters&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <li><a href="sub-Art Posters.html">Advertising Posters</a></li>
+                            <li><a href="sub-SarahBernhardt.html">Sarah Bernhardt&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></li>
+                        </ul>
+                </li>
+        </ul>
+    </nav>
+
+    <div class="clear"></div> <!--float 속성 해제-->
+
+    <section id="main_img">
+    </section>
+
+    <section id="contents">
+        <nav id="sub_menu">
+            <h3>Alphonse Mucha</h3>
+            <ul>
+                <li><a href="Timeline.html">Alphonse Mucha&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;</a></li>
+                <li><a href="sub-TheGenreofArtNouveau.html">The Genre of Art Nouveau</a></li>
+                <li><a href="sub-HisLife.html">His Life&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></li>      
+                <li><a href="sub-ArtisticWorld.html">Artistic World&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;</a></li>            
+        </div>
+        </nav>
+
+        <div id="main_contents">
+            <h1>About Alphonse Mucha</h1>
+            <p name="pp">Alphonse Mucha (1860–1939) stands as the undisputed master of Art Nouveau, 
+                an artistic movement that defined the aesthetic of the late 19th and early 20th centuries. 
+                His distinctive genre—the "Mucha Style"—is immediately recognizable, characterized by idealized, 
+                beautiful female figures surrounded by intricate, flowing hair, stylized floral and organic motifs, 
+                and Byzantine-inspired decorative halos. His breakthrough came in 1895 with the instantly famous poster 
+                for the actress Sarah Bernhardt’s play, Gismonda. This sudden commercial success secured his reputation 
+                and led to a six-year contract with Bernhardt, during which he created iconic decorative panels and posters, 
+                elevating graphic design from mere advertising to high art and making him an international sensation.</p>
+                <div>
+                <div id="face"><img src="Alphonse_face.png"></div>
+                <p>Regarding his life and background, Mucha was born in the Czech region of Moravia, 
+                    then part of the Austro-Hungarian Empire. His early life was marked by a deep sense of Slav identity 
+                    and a struggle for formal artistic training. After studying briefly in Munich, his move to Paris in 1887 
+                    was the pivotal moment that launched his career. Though his Parisian success was centered on commercial 
+                    lithography and decorative art, he always viewed these achievements as a temporary means to an end. He harbored 
+                    a profound ambition to create monumental art dedicated to his nation. This mission crystallized when he secured 
+                    the patronage of the American philanthropist Charles R. Crane, who provided the necessary funding for his ultimate 
+                    artistic endeavor.</p>
+                    </div>
+        </div>
+    </section>
+
+
+    
+ <!--float 속성 해제-->
+    </div> <!-- div 아이디 page의 끝 -->
+    <footer>
+            <div id="address">
+                <img src="address.png">
+            </div>
+        </footer>
+        <div class="clear"></div> </div> 
+</body>
+</html>
